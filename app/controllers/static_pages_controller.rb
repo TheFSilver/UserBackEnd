@@ -22,6 +22,10 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def jr
+
+  end
+
   def groupe
 
   end
