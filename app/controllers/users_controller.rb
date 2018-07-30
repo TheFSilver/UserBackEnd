@@ -5,10 +5,11 @@ class UsersController < ApplicationController
   def new_post
     puts params
     user = User.new
+    user.username = params["username"]
+    user.bio = params["bio"]
+    user.save
     if user.id != nil
-      user.username = params["username"]
-      user.bio = params["bio"]
-      user.save
+      redirect_to "/users/#{User.last.id}"
     else
       redirect_to "/error"
     end
