@@ -11,16 +11,16 @@ class UsersController < ApplicationController
     if user.username.include?(" ")
       redirect_to "/error2"
     elsif user.id != nil
-      redirect_to "/users/#{User.last.id}"
+      redirect_to "/users/#{User.last.username}"
     else
       redirect_to "/error"
     end
   end
 
   def show
-    @id = params[:id]
-    @username = User.find_by(id: @id).username
-    @bio = User.find_by(id: @id).bio
+    @username = params[:username]
+    @id = User.find_by(username: @username).id
+    @bio = User.find_by(username: @username).bio
   end
 
   def error
