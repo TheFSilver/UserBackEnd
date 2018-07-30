@@ -8,7 +8,9 @@ class UsersController < ApplicationController
     user.username = params["username"]
     user.bio = params["bio"]
     user.save
-    if user.id != nil
+    if user.username.include?(" ")
+      redirect_to "/error2"
+    elsif user.id != nil
       redirect_to "/users/#{User.last.id}"
     else
       redirect_to "/error"
