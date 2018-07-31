@@ -1,3 +1,4 @@
+# On definit les methodes et les actions de nos pages
 class UsersController < ApplicationController
   def new
   end
